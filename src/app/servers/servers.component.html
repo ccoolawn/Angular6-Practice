@@ -1,2 +1,29 @@
+<!-- ONE WAY DATA BINDING EXAMPPLE -->
+<!-- <label for="">Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+
+<!-- TWO WAY DATA BINDING EXAMPLE -->
+<label for="">Server Name</label>
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!-- <p>{{ serverName }}</p> -->
+<br>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()" >Add Server</button>
+<br>
+<!-- <p [innerText]="allowNewServer"></p> -->
+<p *ngIf="serverCreated">A new server was created with a name of {{ serverName }}.</p>
+
+<!-- To use If Else, add else noServer to ngIf-->
+<!-- <ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template> -->
+<br>
 <app-server></app-server>
 <app-server></app-server>
+<hr>
+<label for="">User Name</label>
+<input type="text" class="form-control" [(ngModel)]="userName">
+<!-- <p>{{ userName }}</p> -->
+<br>
+<button class="btn btn-success" [disabled]="userName===''" (click)="buttonEvent()" >Add New User</button>
+<!-- <p [innerText]="allowNewServer"></p> -->
+<p>{{ userCreationStatus }}</p>
